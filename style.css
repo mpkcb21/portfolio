@@ -2,7 +2,7 @@
    Global / Root
    ===================== */
 :root {
-  --color-accent: oklch(65% 50% 0);
+  --color-accent: oklch(83.276% 0.17139 82.036);
 }
 
 html {
@@ -13,6 +13,9 @@ body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
+}
+img {
+  max-width: 30%;
 }
 
 /* =====================
