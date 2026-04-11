@@ -3,83 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="/portfolio/index.html">Home</a></li>
-            <li><a href="/portfolio/projects/index.html" class="current">Projects</a></li>
-            <li><a href="/portfolio/contact/index.html">Contact</a></li>
+            <li><a href="/portfolio/projects/index.html">Projects</a></li>
+            <li><a href="/portfolio/contact/index.html" class="current">Contact</a></li>
             <li><a href="/portfolio/cv/index.html">CV</a></li>
             <li><a href="https://github.com/mpkcb21" target="_blank">Profile</a></li>
         </ul>
     </nav>
 
-    <h1>Projects</h1>
+    <h1>Contact</h1>
 
-    <div class="projects">
-        <article>
-            <h2>Lorem ipsum dolor sit</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Amet consectetur adipiscing elit</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Sed do eiusmod tempor</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Incididunt ut labore dolore</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Magna aliqua ut enim</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Ad minim veniam quis</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Nostrud exercitation ullamco laboris</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Nisi ut aliquip ex</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Ea commodo consequat duis</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Aute irure dolor in</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Reprehenderit in voluptate velit</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-        <article>
-            <h2>Esse cillum dolore eu</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </article>
-    </div>
+    <form action="mailto:mpudukottaikrishnara@ucsd.edu" method="POST" enctype="text/plain">
+        <label>
+            Email:
+            <input name="email" type="email">
+        </label>
+
+        <label>
+            Subject:
+            <input name="subject">
+        </label>
+
+        <label>
+            Message:
+            <textarea name="body"></textarea>
+        </label>
+
+        <button>Send</button>
+    </form>
 </body>
 </html>
