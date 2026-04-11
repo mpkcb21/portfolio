@@ -107,3 +107,27 @@ form button {
 .projects article h2 {
   margin: 0;
 }
+/* =====================
+   CV
+   ===================== */
+.cv-section {
+    margin-block: 2em;
+    border-top: 1px solid oklch(80% 3% 200);
+    padding-top: 1em;
+}
+
+.cv-entry {
+    margin-block: 1.5em;
+}
+
+.cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25em;
+}
+
+.cv-entry-header span {
+    color: oklch(55% 3% 200);
+    font-size: 0.9em;
+}
