@@ -6,6 +6,7 @@
 }
 
 html {
+  color-scheme: light dark;
   accent-color: var(--color-accent);
 }
 
@@ -14,7 +15,8 @@ body {
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
 }
-.profile-photo{
+
+.profile-photo {
   max-width: 30%;
 }
 
@@ -39,9 +41,10 @@ nav li {
 }
 
 nav {
+  --border-color: oklch(50% 10% 200 / 40%);
   display: flex;
   margin-bottom: 1em;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -53,13 +56,13 @@ nav a {
 }
 
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
+  border-bottom: 0.4em solid var(--border-color);
   padding-bottom: 0.1em;
 }
 
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 /* =====================
@@ -79,7 +82,8 @@ form label {
 
 form input,
 form textarea,
-form button {
+form button,
+select {
   font: inherit;
   width: 100%;
   box-sizing: border-box;
@@ -107,27 +111,39 @@ form button {
 .projects article h2 {
   margin: 0;
 }
+
 /* =====================
    CV
    ===================== */
 .cv-section {
-    margin-block: 2em;
-    border-top: 1px solid oklch(80% 3% 200);
-    padding-top: 1em;
+  margin-block: 2em;
+  border-top: 1px solid oklch(80% 3% 200);
+  padding-top: 1em;
 }
 
 .cv-entry {
-    margin-block: 1.5em;
+  margin-block: 1.5em;
 }
 
 .cv-entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.25em;
 }
 
 .cv-entry-header span {
-    color: oklch(55% 3% 200);
-    font-size: 0.9em;
+  color: oklch(55% 3% 200);
+  font-size: 0.9em;
+}
+
+/* =====================
+   Color Scheme Switcher
+   ===================== */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
 }
