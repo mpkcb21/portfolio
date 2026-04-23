@@ -180,10 +180,10 @@ form button {
   margin: 0;
 }
 
-html[style*="color-scheme: light"] #profile-stats .stat-box {
+html[style="color-scheme: light;"] #profile-stats .stat-box {
   background: oklch(90% 3% 250);
 }
 
-html[style*="color-scheme: light"] #profile-stats dt {
+html[style="color-scheme: light;"] #profile-stats dt {
   color: oklch(40% 5% 250);
 }
