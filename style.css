@@ -147,3 +147,38 @@ form button {
   font-size: 80%;
   font-family: inherit;
 }
+/* =====================
+   GitHub Stats
+   ===================== */
+#profile-stats {
+  background: oklch(20% 5% 250);
+  border-radius: 12px;
+  padding: 1.5em 2em;
+  margin-block: 1.5em;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 0;
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: oklch(70% 5% 250);
+  text-align: center;
+  padding-bottom: 0.25em;
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--color-accent);
+  text-align: center;
+  margin: 0;
+}
