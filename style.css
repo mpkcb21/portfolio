@@ -159,7 +159,7 @@ form button {
 }
 
 #profile-stats .stat-box {
-  background: oklch(20% 5% 250);
+  background: oklch(90% 3% 250);
   border-radius: 10px;
   padding: 1em;
   text-align: center;
@@ -169,7 +169,7 @@ form button {
   font-size: 0.75em;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: oklch(70% 5% 250);
+  color: oklch(40% 5% 250);
   margin-bottom: 0.25em;
 }
 
@@ -180,10 +180,28 @@ form button {
   margin: 0;
 }
 
-html[style="color-scheme: light;"] #profile-stats .stat-box {
-  background: oklch(90% 3% 250) !important;
+@media (prefers-color-scheme: dark) {
+  #profile-stats .stat-box {
+    background: oklch(20% 5% 250);
+  }
+
+  #profile-stats dt {
+    color: oklch(70% 5% 250);
+  }
+}
+
+html[style="color-scheme: dark;"] #profile-stats .stat-box {
+  background: oklch(20% 5% 250);
 }
 
 html[style="color-scheme: dark;"] #profile-stats dt {
-  color: oklch(40% 5% 250) !important;
+  color: oklch(70% 5% 250);
+}
+
+html[style="color-scheme: light;"] #profile-stats .stat-box {
+  background: oklch(90% 3% 250);
+}
+
+html[style="color-scheme: light;"] #profile-stats dt {
+  color: oklch(40% 5% 250);
 }
