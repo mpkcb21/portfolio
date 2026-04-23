@@ -184,6 +184,6 @@ html[style="color-scheme: light;"] #profile-stats .stat-box {
   background: oklch(90% 3% 250) !important;
 }
 
-html[style="color-scheme: light;"] #profile-stats dt {
+html[style="color-scheme: dark;"] #profile-stats dt {
   color: oklch(40% 5% 250) !important;
 }
