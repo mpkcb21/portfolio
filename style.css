@@ -179,12 +179,10 @@ form button {
   margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  #profile-stats .stat-box {
-    background: oklch(20% 5% 250);
-  }
+html[style*="color-scheme: dark"] #profile-stats .stat-box {
+  background: oklch(20% 5% 250);
+}
 
-  #profile-stats dt {
-    color: oklch(70% 5% 250);
-  }
+html[style*="color-scheme: dark"] #profile-stats dt {
+  color: oklch(70% 5% 250);
 }
