@@ -2,73 +2,73 @@
   {
     "title": "Lorem ipsum dolor sit",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "A deep dive into machine learning models for predicting urban traffic patterns using real-time sensor data.",
     "year": 2024
   },
   {
     "title": "Amet consectetur adipiscing elit",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Built a full-stack web app for tracking personal fitness goals with data visualizations and weekly reports.",
     "year": 2024
   },
   {
     "title": "Sed do eiusmod tempor",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Designed an interactive dashboard for visualizing global climate change data across the past century.",
     "year": 2023
   },
   {
     "title": "Incididunt ut labore dolore",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Developed a recommendation engine for an e-commerce platform using collaborative filtering techniques.",
     "year": 2023
   },
   {
     "title": "Magna aliqua ut enim",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Created a mobile app for language learning that adapts difficulty based on user performance over time.",
     "year": 2023
   },
   {
     "title": "Ad minim veniam quis",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Analyzed social media sentiment data to identify trends in public opinion during election seasons.",
     "year": 2022
   },
   {
     "title": "Nostrud exercitation ullamco laboris",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Built a real-time collaborative code editor with syntax highlighting and multi-user cursor tracking.",
     "year": 2022
   },
   {
     "title": "Nisi ut aliquip ex",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Explored generative art using p5.js to create algorithmically produced visual patterns and animations.",
     "year": 2022
   },
   {
     "title": "Ea commodo consequat duis",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Designed a network graph tool to visualize academic paper citations and identify research clusters.",
     "year": 2021
   },
   {
     "title": "Aute irure dolor in",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Built a browser extension that summarizes long articles and highlights key takeaways using NLP.",
     "year": 2021
   },
   {
     "title": "Reprehenderit in voluptate velit",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Created a data pipeline for scraping, cleaning, and visualizing housing market trends across US cities.",
     "year": 2020
   },
   {
     "title": "Esse cillum dolore eu",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "description": "Developed a multiplayer trivia game with real-time scoring, leaderboards, and custom question sets.",
     "year": 2020
   }
 ]
