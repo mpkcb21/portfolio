@@ -13,12 +13,24 @@ let colors = d3.scaleOrdinal(d3.schemeTableau10);
 let selectedIndex = -1;
 let query = '';
 
-function getFilteredProjects() {
+function getSearchFiltered() {
   return projects.filter((project) => {
     let values = Object.values(project).join('\n').toLowerCase();
     return values.includes(query.toLowerCase());
   });
 }
+
+function applyFilters() {
+  let filtered = getSearchFiltered();
+  if (selectedIndex !== -1 && currentData[selectedIndex]) {
+    filtered = filtered.filter(
+      (p) => p.year === currentData[selectedIndex].label,
+    );
+  }
+  renderProjects(filtered, projectsContainer, 'h2');
+}
+
+let currentData = [];
 
 function renderPieChart(projectsGiven) {
   let newRolledData = d3.rollups(
@@ -27,19 +39,17 @@ function renderPieChart(projectsGiven) {
     (d) => d.year,
   );
 
-  let newData = newRolledData.map(([year, count]) => {
+  currentData = newRolledData.map(([year, count]) => {
     return { value: count, label: year };
   });
 
   let newSliceGenerator = d3.pie().value((d) => d.value);
-  let newArcData = newSliceGenerator(newData);
+  let newArcData = newSliceGenerator(currentData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
 
-  // Clear old paths and legend
   d3.select('#projects-pie-plot').selectAll('path').remove();
   d3.select('.legend').selectAll('li').remove();
 
-  // Draw new paths
   let svg = d3.select('#projects-pie-plot');
   newArcs.forEach((arc, idx) => {
     svg
@@ -60,20 +70,12 @@ function renderPieChart(projectsGiven) {
             i === selectedIndex ? 'legend-item selected' : 'legend-item',
           );
 
-        // Apply both filters together
-        let filtered = getFilteredProjects();
-        if (selectedIndex !== -1) {
-          filtered = filtered.filter(
-            (p) => p.year === newData[selectedIndex].label,
-          );
-        }
-        renderProjects(filtered, projectsContainer, 'h2');
+        applyFilters();
       });
   });
 
-  // Draw new legend
   let legend = d3.select('.legend');
-  newData.forEach((d, idx) => {
+  currentData.forEach((d, idx) => {
     legend
       .append('li')
       .attr('style', `--color:${colors(idx)}`)
@@ -82,15 +84,13 @@ function renderPieChart(projectsGiven) {
   });
 }
 
-// Call on page load
 renderPieChart(projects);
 
-// Search
 let searchInput = document.querySelector('.searchBar');
 
 searchInput.addEventListener('input', (event) => {
   query = event.target.value;
-  let filteredProjects = getFilteredProjects();
-  renderProjects(filteredProjects, projectsContainer, 'h2');
-  renderPieChart(filteredProjects);
+  let searchFiltered = getSearchFiltered();
+  renderPieChart(searchFiltered);
+  applyFilters();
 });
