@@ -12,6 +12,7 @@ let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 let selectedIndex = -1;
 let query = '';
+let currentData = [];
 
 function getSearchFiltered() {
   return projects.filter((project) => {
@@ -29,8 +30,6 @@ function applyFilters() {
   }
   renderProjects(filtered, projectsContainer, 'h2');
 }
-
-let currentData = [];
 
 function renderPieChart(projectsGiven) {
   let newRolledData = d3.rollups(
@@ -91,6 +90,26 @@ let searchInput = document.querySelector('.searchBar');
 searchInput.addEventListener('input', (event) => {
   query = event.target.value;
   let searchFiltered = getSearchFiltered();
+
+  // Remember selected year before re-rendering
+  let selectedYear = selectedIndex !== -1 ? currentData[selectedIndex]?.label : null;
+
+  // Re-render pie chart with search filtered data
   renderPieChart(searchFiltered);
+
+  // Re-select the same year if it still exists in new data
+  if (selectedYear) {
+    let newIdx = currentData.findIndex((d) => d.label === selectedYear);
+    selectedIndex = newIdx;
+    d3.select('#projects-pie-plot')
+      .selectAll('path')
+      .attr('class', (_, i) => (i === selectedIndex ? 'selected' : ''));
+    d3.select('.legend')
+      .selectAll('li')
+      .attr('class', (_, i) =>
+        i === selectedIndex ? 'legend-item selected' : 'legend-item',
+      );
+  }
+
   applyFilters();
 });
