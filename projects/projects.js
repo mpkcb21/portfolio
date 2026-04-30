@@ -10,6 +10,7 @@ projectsTitle.textContent = `Projects (${projects.length})`;
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
+let selectedIndex = -1;
 
 function renderPieChart(projectsGiven) {
   let newRolledData = d3.rollups(
@@ -31,11 +32,35 @@ function renderPieChart(projectsGiven) {
   d3.select('.legend').selectAll('li').remove();
 
   // Draw new paths
+  let svg = d3.select('#projects-pie-plot');
   newArcs.forEach((arc, idx) => {
-    d3.select('#projects-pie-plot')
+    svg
       .append('path')
       .attr('d', arc)
-      .attr('fill', colors(idx));
+      .attr('fill', colors(idx))
+      .attr('class', idx === selectedIndex ? 'selected' : '')
+      .on('click', () => {
+        selectedIndex = selectedIndex === idx ? -1 : idx;
+
+        svg
+          .selectAll('path')
+          .attr('class', (_, i) => (i === selectedIndex ? 'selected' : ''));
+
+        d3.select('.legend')
+          .selectAll('li')
+          .attr('class', (_, i) =>
+            i === selectedIndex ? 'legend-item selected' : 'legend-item',
+          );
+
+        if (selectedIndex === -1) {
+          renderProjects(projects, projectsContainer, 'h2');
+        } else {
+          let filtered = projects.filter(
+            (p) => p.year === newData[selectedIndex].label,
+          );
+          renderProjects(filtered, projectsContainer, 'h2');
+        }
+      });
   });
 
   // Draw new legend
@@ -44,7 +69,7 @@ function renderPieChart(projectsGiven) {
     legend
       .append('li')
       .attr('style', `--color:${colors(idx)}`)
-      .attr('class', 'legend-item')
+      .attr('class', idx === selectedIndex ? 'legend-item selected' : 'legend-item')
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
 }
