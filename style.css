@@ -205,3 +205,8 @@ html[style="color-scheme: light;"] #profile-stats .stat-box {
 html[style="color-scheme: light;"] #profile-stats dt {
   color: oklch(40% 5% 250);
 }
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+}
