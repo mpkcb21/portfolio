@@ -11,7 +11,6 @@ projectsTitle.textContent = `Projects (${projects.length})`;
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 let selectedIndex = -1;
-let selectedYear = null;
 let query = '';
 let currentData = [];
 
@@ -24,9 +23,9 @@ function getSearchFiltered() {
 
 function applyFilters() {
   let filtered = getSearchFiltered();
-  if (selectedYear !== null) {
+  if (selectedIndex !== -1 && currentData[selectedIndex]) {
     filtered = filtered.filter(
-      (p) => String(p.year) === String(selectedYear),
+      (p) => String(p.year) === String(currentData[selectedIndex].label),
     );
   }
   renderProjects(filtered, projectsContainer, 'h2');
@@ -43,11 +42,6 @@ function renderPieChart(projectsGiven) {
     return { value: count, label: year };
   });
 
-  // Re-find selectedIndex based on selectedYear
-  selectedIndex = selectedYear !== null
-    ? currentData.findIndex((d) => String(d.label) === String(selectedYear))
-    : -1;
-
   let newSliceGenerator = d3.pie().value((d) => d.value);
   let newArcData = newSliceGenerator(currentData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
@@ -63,13 +57,7 @@ function renderPieChart(projectsGiven) {
       .attr('fill', colors(idx))
       .attr('class', idx === selectedIndex ? 'selected' : '')
       .on('click', () => {
-        if (selectedIndex === idx) {
-          selectedIndex = -1;
-          selectedYear = null;
-        } else {
-          selectedIndex = idx;
-          selectedYear = currentData[idx].label;
-        }
+        selectedIndex = selectedIndex === idx ? -1 : idx;
 
         svg
           .selectAll('path')
@@ -102,6 +90,26 @@ let searchInput = document.querySelector('.searchBar');
 searchInput.addEventListener('input', (event) => {
   query = event.target.value;
   let searchFiltered = getSearchFiltered();
+
+  // Remember selected year before re-rendering
+  let selectedYear = selectedIndex !== -1 ? currentData[selectedIndex]?.label : null;
+
+  // Re-render pie chart with search filtered data
   renderPieChart(searchFiltered);
+
+  // Re-select the same year if it still exists in new data
+  if (selectedYear) {
+    let newIdx = currentData.findIndex((d) => String(d.label) === String(selectedYear));
+    selectedIndex = newIdx;
+    d3.select('#projects-pie-plot')
+      .selectAll('path')
+      .attr('class', (_, i) => (i === selectedIndex ? 'selected' : ''));
+    d3.select('.legend')
+      .selectAll('li')
+      .attr('class', (_, i) =>
+        i === selectedIndex ? 'legend-item selected' : 'legend-item',
+      );
+  }
+
   applyFilters();
 });
