@@ -25,7 +25,7 @@ function applyFilters() {
   let filtered = getSearchFiltered();
   if (selectedIndex !== -1 && currentData[selectedIndex]) {
     filtered = filtered.filter(
-      (p) => p.year === currentData[selectedIndex].label,
+      (p) => String(p.year) === String(currentData[selectedIndex].label),
     );
   }
   renderProjects(filtered, projectsContainer, 'h2');
@@ -99,7 +99,7 @@ searchInput.addEventListener('input', (event) => {
 
   // Re-select the same year if it still exists in new data
   if (selectedYear) {
-    let newIdx = currentData.findIndex((d) => d.label === selectedYear);
+    let newIdx = currentData.findIndex((d) => String(d.label) === String(selectedYear));
     selectedIndex = newIdx;
     d3.select('#projects-pie-plot')
       .selectAll('path')
