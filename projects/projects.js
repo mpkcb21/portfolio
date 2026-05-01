@@ -11,6 +11,7 @@ projectsTitle.textContent = `Projects (${projects.length})`;
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 let selectedIndex = -1;
+let selectedYear = null;
 let query = '';
 let currentData = [];
 
@@ -23,9 +24,9 @@ function getSearchFiltered() {
 
 function applyFilters() {
   let filtered = getSearchFiltered();
-  if (selectedIndex !== -1 && currentData[selectedIndex]) {
+  if (selectedYear !== null) {
     filtered = filtered.filter(
-      (p) => String(p.year) === String(currentData[selectedIndex].label),
+      (p) => String(p.year) === String(selectedYear),
     );
   }
   renderProjects(filtered, projectsContainer, 'h2');
@@ -42,6 +43,11 @@ function renderPieChart(projectsGiven) {
     return { value: count, label: year };
   });
 
+  // Re-find selectedIndex based on selectedYear
+  selectedIndex = selectedYear !== null
+    ? currentData.findIndex((d) => String(d.label) === String(selectedYear))
+    : -1;
+
   let newSliceGenerator = d3.pie().value((d) => d.value);
   let newArcData = newSliceGenerator(currentData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
@@ -57,7 +63,13 @@ function renderPieChart(projectsGiven) {
       .attr('fill', colors(idx))
       .attr('class', idx === selectedIndex ? 'selected' : '')
       .on('click', () => {
-        selectedIndex = selectedIndex === idx ? -1 : idx;
+        if (selectedIndex === idx) {
+          selectedIndex = -1;
+          selectedYear = null;
+        } else {
+          selectedIndex = idx;
+          selectedYear = currentData[idx].label;
+        }
 
         svg
           .selectAll('path')
@@ -89,5 +101,7 @@ let searchInput = document.querySelector('.searchBar');
 
 searchInput.addEventListener('input', (event) => {
   query = event.target.value;
+  let searchFiltered = getSearchFiltered();
+  renderPieChart(searchFiltered);
   applyFilters();
 });
