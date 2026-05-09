@@ -205,11 +205,13 @@ html[style="color-scheme: light;"] #profile-stats .stat-box {
 html[style="color-scheme: light;"] #profile-stats dt {
   color: oklch(40% 5% 250);
 }
+
 #projects-pie-plot {
   max-width: 20em;
   margin-block: 2em;
   overflow: visible;
 }
+
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
@@ -218,6 +220,7 @@ html[style="color-scheme: light;"] #profile-stats dt {
   margin: 0;
   border: 1px solid oklch(50% 10% 200 / 40%);
   list-style: none;
+  flex: 1;
 }
 
 .legend-item {
@@ -233,6 +236,7 @@ html[style="color-scheme: light;"] #profile-stats dt {
   border-radius: 50%;
   background-color: var(--color);
 }
+
 .chart-container {
   display: flex;
   align-items: center;
@@ -240,9 +244,6 @@ html[style="color-scheme: light;"] #profile-stats dt {
   margin-block: 2em;
 }
 
-.legend {
-  flex: 1;
-}
 path {
   cursor: pointer;
   transition: 300ms;
@@ -259,6 +260,7 @@ path {
 svg:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
+
 .searchBar {
   width: 100%;
   padding: 0.75em 1em;
@@ -275,24 +277,133 @@ svg:has(path:hover) path:not(:hover) {
   outline: none;
   border-color: var(--color-accent);
 }
-/* Meta page stats */
+
+/* =====================
+   Meta Page Stats
+   ===================== */
 .stats {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.5em 1em;
-  margin: 1em 0;
+  grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+  gap: 1em;
+  margin: 1.5em 0;
+  padding: 0;
 }
 
 .stats dt {
-  font-weight: bold;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: oklch(50% 10% 200);
+  margin-bottom: 0.25em;
 }
 
 .stats dd {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--color-accent);
   margin: 0;
 }
 
-/* Tooltip */
+.stats dt,
+.stats dd {
+  background: oklch(90% 3% 250);
+  border-radius: 10px;
+  padding: 0.75em 1em;
+}
+
+.stats dt {
+  border-radius: 10px 10px 0 0;
+  padding-bottom: 0.25em;
+}
+
+.stats dd {
+  border-radius: 0 0 10px 10px;
+  padding-top: 0.25em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stats dt,
+  .stats dd {
+    background: oklch(20% 5% 250);
+  }
+
+  .stats dt {
+    color: oklch(70% 5% 250);
+  }
+}
+
+html[style="color-scheme: dark;"] .stats dt,
+html[style="color-scheme: dark;"] .stats dd {
+  background: oklch(20% 5% 250);
+}
+
+html[style="color-scheme: dark;"] .stats dt {
+  color: oklch(70% 5% 250);
+}
+
+html[style="color-scheme: light;"] .stats dt,
+html[style="color-scheme: light;"] .stats dd {
+  background: oklch(90% 3% 250);
+}
+
+/* =====================
+   Language Breakdown
+   ===================== */
+#language-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  gap: 1em;
+  margin: 1em 0;
+}
+
+#language-breakdown dt {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: oklch(50% 10% 200);
+  background: oklch(90% 3% 250);
+  border-radius: 10px 10px 0 0;
+  padding: 0.75em 1em 0.25em;
+}
+
+#language-breakdown dd {
+  font-size: 1.25em;
+  font-weight: bold;
+  color: var(--color-accent);
+  margin: 0;
+  background: oklch(90% 3% 250);
+  border-radius: 0 0 10px 10px;
+  padding: 0.25em 1em 0.75em;
+}
+
+@media (prefers-color-scheme: dark) {
+  #language-breakdown dt,
+  #language-breakdown dd {
+    background: oklch(20% 5% 250);
+  }
+
+  #language-breakdown dt {
+    color: oklch(70% 5% 250);
+  }
+}
+
+html[style="color-scheme: dark;"] #language-breakdown dt,
+html[style="color-scheme: dark;"] #language-breakdown dd {
+  background: oklch(20% 5% 250);
+}
+
+html[style="color-scheme: dark;"] #language-breakdown dt {
+  color: oklch(70% 5% 250);
+}
+
+html[style="color-scheme: light;"] #language-breakdown dt,
+html[style="color-scheme: light;"] #language-breakdown dd {
+  background: oklch(90% 3% 250);
+}
+
+/* =====================
+   Tooltip
+   ===================== */
 dl.info {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -328,7 +439,9 @@ dl.info[hidden]:not(:hover, :focus-within) {
   padding: 1em;
 }
 
-/* Dot hover */
+/* =====================
+   Scatterplot Dots
+   ===================== */
 circle {
   transition: 200ms;
   transform-origin: center;
@@ -338,6 +451,7 @@ circle {
 circle:hover {
   transform: scale(1.5);
 }
+
 circle.selected {
   fill: #ff6b6b;
 }
