@@ -13,6 +13,7 @@ let pages = [
   { url: 'projects/', title: 'Projects' },
   { url: 'contact/', title: 'Contact' },
   { url: 'cv/', title: 'CV' },
+  { url: 'meta/', title: 'Meta' },
   { url: 'https://github.com/mpkcb21', title: 'Profile' },
 ];
 
@@ -62,6 +63,7 @@ select.addEventListener('input', function (event) {
   document.documentElement.style.setProperty('color-scheme', event.target.value);
   localStorage.colorScheme = event.target.value;
 });
+
 export async function fetchJSON(url) {
   try {
     const response = await fetch(url);
@@ -77,6 +79,7 @@ export async function fetchJSON(url) {
     console.error('Error fetching or parsing JSON data:', error);
   }
 }
+
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
 
@@ -92,6 +95,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     containerElement.appendChild(article);
   }
 }
+
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
