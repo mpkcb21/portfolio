@@ -279,6 +279,56 @@ svg:has(path:hover) path:not(:hover) {
 }
 
 /* =====================
+   Meta Stat Boxes
+   ===================== */
+.stat-box {
+  background: oklch(90% 3% 250);
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.stat-box dt {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: oklch(40% 5% 250);
+  margin-bottom: 0.25em;
+}
+
+.stat-box dd {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stat-box {
+    background: oklch(20% 5% 250);
+  }
+
+  .stat-box dt {
+    color: oklch(70% 5% 250);
+  }
+}
+
+html[style="color-scheme: dark;"] .stat-box {
+  background: oklch(20% 5% 250);
+}
+
+html[style="color-scheme: dark;"] .stat-box dt {
+  color: oklch(70% 5% 250);
+}
+
+html[style="color-scheme: light;"] .stat-box {
+  background: oklch(90% 3% 250);
+}
+
+html[style="color-scheme: light;"] .stat-box dt {
+  color: oklch(40% 5% 250);
+}
+
+/* =====================
    Meta Page Stats
    ===================== */
 .stats {
@@ -287,63 +337,6 @@ svg:has(path:hover) path:not(:hover) {
   gap: 1em;
   margin: 1.5em 0;
   padding: 0;
-}
-
-.stats dt {
-  font-size: 0.75em;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: oklch(50% 10% 200);
-  margin-bottom: 0.25em;
-}
-
-.stats dd {
-  font-size: 2em;
-  font-weight: bold;
-  color: var(--color-accent);
-  margin: 0;
-}
-
-.stats dt,
-.stats dd {
-  background: oklch(90% 3% 250);
-  border-radius: 10px;
-  padding: 0.75em 1em;
-}
-
-.stats dt {
-  border-radius: 10px 10px 0 0;
-  padding-bottom: 0.25em;
-}
-
-.stats dd {
-  border-radius: 0 0 10px 10px;
-  padding-top: 0.25em;
-}
-
-@media (prefers-color-scheme: dark) {
-  .stats dt,
-  .stats dd {
-    background: oklch(20% 5% 250);
-  }
-
-  .stats dt {
-    color: oklch(70% 5% 250);
-  }
-}
-
-html[style="color-scheme: dark;"] .stats dt,
-html[style="color-scheme: dark;"] .stats dd {
-  background: oklch(20% 5% 250);
-}
-
-html[style="color-scheme: dark;"] .stats dt {
-  color: oklch(70% 5% 250);
-}
-
-html[style="color-scheme: light;"] .stats dt,
-html[style="color-scheme: light;"] .stats dd {
-  background: oklch(90% 3% 250);
 }
 
 /* =====================
@@ -356,49 +349,8 @@ html[style="color-scheme: light;"] .stats dd {
   margin: 1em 0;
 }
 
-#language-breakdown dt {
-  font-size: 0.75em;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: oklch(50% 10% 200);
-  background: oklch(90% 3% 250);
-  border-radius: 10px 10px 0 0;
-  padding: 0.75em 1em 0.25em;
-}
-
-#language-breakdown dd {
+#language-breakdown .stat-box dd {
   font-size: 1.25em;
-  font-weight: bold;
-  color: var(--color-accent);
-  margin: 0;
-  background: oklch(90% 3% 250);
-  border-radius: 0 0 10px 10px;
-  padding: 0.25em 1em 0.75em;
-}
-
-@media (prefers-color-scheme: dark) {
-  #language-breakdown dt,
-  #language-breakdown dd {
-    background: oklch(20% 5% 250);
-  }
-
-  #language-breakdown dt {
-    color: oklch(70% 5% 250);
-  }
-}
-
-html[style="color-scheme: dark;"] #language-breakdown dt,
-html[style="color-scheme: dark;"] #language-breakdown dd {
-  background: oklch(20% 5% 250);
-}
-
-html[style="color-scheme: dark;"] #language-breakdown dt {
-  color: oklch(70% 5% 250);
-}
-
-html[style="color-scheme: light;"] #language-breakdown dt,
-html[style="color-scheme: light;"] #language-breakdown dd {
-  background: oklch(90% 3% 250);
 }
 
 /* =====================

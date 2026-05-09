@@ -44,11 +44,13 @@ function processCommits(data) {
 function renderCommitInfo(data, commits) {
   const dl = d3.select('#stats').append('dl').attr('class', 'stats');
 
-  dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
-  dl.append('dd').text(data.length);
+  const locDiv = dl.append('div').attr('class', 'stat-box');
+  locDiv.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+  locDiv.append('dd').text(data.length);
 
-  dl.append('dt').text('Total commits');
-  dl.append('dd').text(commits.length);
+  const commitsDiv = dl.append('div').attr('class', 'stat-box');
+  commitsDiv.append('dt').text('Total commits');
+  commitsDiv.append('dd').text(commits.length);
 }
 
 function renderTooltipContent(commit) {
@@ -123,8 +125,10 @@ function renderLanguageBreakdown(selection) {
     const proportion = count / lines.length;
     const formatted = d3.format('.1~%')(proportion);
     container.innerHTML += `
-      <dt>${language}</dt>
-      <dd>${count} lines (${formatted})</dd>
+      <div class="stat-box">
+        <dt>${language}</dt>
+        <dd>${count} lines (${formatted})</dd>
+      </div>
     `;
   }
 }
