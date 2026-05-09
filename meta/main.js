@@ -12,7 +12,6 @@ async function loadData() {
   return data;
 }
 
-let data = await loadData();
 function processCommits(data) {
   return d3
     .groups(data, (d) => d.commit)
