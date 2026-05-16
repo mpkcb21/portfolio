@@ -1,7 +1,7 @@
 [
   {
     "title": "CycleScope",
-    "image": "https://mpkcb21.github.io/cyclescope/assets/preview.png",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "An interactive map visualization of BlueBike station traffic across Boston and Cambridge, with time-of-day filtering and color-coded arrival/departure flow.",
     "year": 2026,
     "url": "https://mpkcb21.github.io/cyclescope/"
